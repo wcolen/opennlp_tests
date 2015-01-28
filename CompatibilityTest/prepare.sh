@@ -1,31 +1,32 @@
-mkdir downloads
-cd downloads
+# creating folders
+mkdir target
+
+mkdir target/downloads
+mkdir target/downloads/corpus
+mkdir target/dist
+mkdir target/models
 
 # download corpus
-wget http://corpora.uni-leipzig.de/downloads/eng_news_2010_300K-text.tar.gz
+wget -P target/downloads http://corpora.uni-leipzig.de/downloads/eng_news_2010_300K-text.tar.gz
 
 # dowload opennlp
-wget https://archive.apache.org/dist/incubator/opennlp/apache-opennlp-1.5.2-incubating-bin.tar.gz
-wget http://ftp.unicamp.br/pub/apache//opennlp/opennlp-1.5.3/apache-opennlp-1.5.3-bin.tar.gz
-wget http://people.apache.org/~colen/releases/opennlp-1.6.0/rc2/apache-opennlp-1.6.0-bin.tar.gz
+wget -P target/downloads https://archive.apache.org/dist/incubator/opennlp/apache-opennlp-1.5.2-incubating-bin.tar.gz
+wget -P target/downloads http://ftp.unicamp.br/pub/apache//opennlp/opennlp-1.5.3/apache-opennlp-1.5.3-bin.tar.gz
+wget -P target/downloads http://people.apache.org/~colen/releases/opennlp-1.6.0/rc2/apache-opennlp-1.6.0-bin.tar.gz
 
+tar -xzvf target/downloads/eng_news_2010_300K-text.tar.gz -C target/downloads/corpus
 
-mkdir corpus
-tar -xzvf eng_news_2010_300K-text.tar.gz -C corpus
-
-for f in apache-opennlp*.tar.gz; do tar -xzvf $f -C ..; done
+for f in target/downloads/apache-opennlp*.tar.gz; do tar -xzvf $f -C target/dist; done
 
 #download models
 
-cd ..
-mkdir models
-wget http://opennlp.sourceforge.net/models-1.5/en-chunker.bin
-wget http://opennlp.sourceforge.net/models-1.5/en-ner-person.bin
-wget http://opennlp.sourceforge.net/models-1.5/en-parser-chunking.bin
-wget http://opennlp.sourceforge.net/models-1.5/en-pos-maxent.bin
-wget http://opennlp.sourceforge.net/models-1.5/en-pos-perceptron.bin
-wget http://opennlp.sourceforge.net/models-1.5/en-sent.bin
-wget http://opennlp.sourceforge.net/models-1.5/en-token.bin
+wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-chunker.bin
+wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-ner-person.bin
+wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-parser-chunking.bin
+wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-pos-maxent.bin
+wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-pos-perceptron.bin
+wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-sent.bin
+wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-token.bin
 
 cd ..
 
