@@ -1,5 +1,7 @@
 vers=$1
 
+mkdir target/res/res_${vers}
+
 time sh target/dist/apache-opennlp-${vers}/bin/opennlp SentenceDetector target/models/en-sent.bin < target/downloads/corpus/out-documents.test > target/res/res_${vers}/out-sentences.test
  
 time sh target/dist/apache-opennlp-${vers}/bin/opennlp TokenizerME target/models/en-token.bin < target/res/res_${vers}/out-sentences.test > target/res/res_${vers}/out-toks.test
