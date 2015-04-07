@@ -15,6 +15,8 @@ echo Dowload opennlp distributables...
 wget -P target/downloads https://archive.apache.org/dist/incubator/opennlp/apache-opennlp-1.5.2-incubating-bin.tar.gz
 wget -P target/downloads http://ftp.unicamp.br/pub/apache//opennlp/opennlp-1.5.3/apache-opennlp-1.5.3-bin.tar.gz
 wget -P target/downloads http://people.apache.org/~colen/releases/opennlp-1.6.0/rc2/apache-opennlp-1.6.0-bin.tar.gz
+wget -P target/downloads https://repository.apache.org/service/local/repo_groups/snapshots-group/content/org/apache/opennlp/opennlp-distr/1.6.1-SNAPSHOT/opennlp-distr-1.6.1-20150407.124043-22-bin.tar.gz apache-opennlp-1.6.1-SNAPSHOT-bin.tar.gz
+# https://repository.apache.org/#view-repositories;snapshots-group~browsestorage
 
 echo Untar corpus ...
 
@@ -36,11 +38,11 @@ wget -P target/models http://opennlp.sourceforge.net/models-1.5/en-token.bin
 # prepare corpus
 # Corpus preparation: the following command will create documents from the corpus. Sed is used to remove the language prefix
 
-echo Prepare corpus leipzig -> docs
+echo Prepare corpus leipzig - docs
 sh target/dist/apache-opennlp-1.5.3/bin/opennlp DoccatConverter leipzig -data target/downloads/corpus/eng_news_2010_300K-sentences.txt -encoding UTF-8 -lang en | sed -E 's/^en[[:space:]]//g' > target/downloads/corpus/out-tokenized-documents.test
  
 # Corpus preparation: this forces the detokenization of the documents
  
-echo Prepare corpus docs -> detokenized sentences
+echo Prepare corpus docs - detokenized sentences
 sh target/dist/apache-opennlp-1.5.3/bin/opennlp SentenceDetectorConverter namefinder -data target/downloads/corpus/out-tokenized-documents.test -encoding UTF-8 -detokenizer en-detokenizer.xml > target/downloads/corpus/out-documents.test
  
