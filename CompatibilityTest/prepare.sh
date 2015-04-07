@@ -15,7 +15,8 @@ echo Dowload opennlp distributables...
 wget -P target/downloads https://archive.apache.org/dist/incubator/opennlp/apache-opennlp-1.5.2-incubating-bin.tar.gz
 wget -P target/downloads http://ftp.unicamp.br/pub/apache//opennlp/opennlp-1.5.3/apache-opennlp-1.5.3-bin.tar.gz
 wget -P target/downloads http://people.apache.org/~colen/releases/opennlp-1.6.0/rc2/apache-opennlp-1.6.0-bin.tar.gz
-wget -P target/downloads https://repository.apache.org/service/local/repo_groups/snapshots-group/content/org/apache/opennlp/opennlp-distr/1.6.1-SNAPSHOT/opennlp-distr-1.6.1-20150407.124043-22-bin.tar.gz apache-opennlp-1.6.1-SNAPSHOT-bin.tar.gz
+wget -P target/downloads https://repository.apache.org/service/local/repo_groups/snapshots-group/content/org/apache/opennlp/opennlp-distr/1.6.1-SNAPSHOT/opennlp-distr-1.6.1-20150407.124043-22-bin.tar.gz
+mv target/downloads/opennlp-distr-1.6.1-20150407.124043-22-bin.tar.gz target/downloads/apache-opennlp-1.6.1-SNAPSHOT-bin.tar.gz
 # https://repository.apache.org/#view-repositories;snapshots-group~browsestorage
 
 echo Untar corpus ...
